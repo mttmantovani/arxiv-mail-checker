@@ -44,7 +44,7 @@ optional arguments:
 * The file `login.txt` contains credentials to access the email account (i.e., email address, IMAP server address and password). Example:
 
 	```
-	$ cat logins.txt
+	$ cat login.txt
 	user@example.com
 	imap.example.com
 	password
