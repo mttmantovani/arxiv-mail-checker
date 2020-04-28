@@ -123,9 +123,9 @@ class Checker(object):
             string += '\n\n'+79*'='+'\n\n'
 
         # Wrap long lines
-        wrapper = textwrap.TextWrapper(width=79, break_on_hyphens=False)
-        string = '\n'.join(['\n'.join(wrapper.wrap(text=line)) for line in string.split('\n')])
-
+        wrapper = textwrap.TextWrapper(width=79, break_on_hyphens=False,
+                                       subsequent_indent='  ')
+        string = '\n'.join([wrapper.fill(text=line) for line in string.split('\n')])
 
         if self.output is sys.stdout:
             print(string)
