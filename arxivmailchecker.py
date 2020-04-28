@@ -5,7 +5,6 @@ import click
 import datetime
 import getpass
 import imaplib
-import os
 import sys
 import textwrap
 
