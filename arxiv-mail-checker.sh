@@ -1,15 +1,16 @@
 #!/bin/bash
 
-CHECKER=arxivmailchecker.py
 PYTHON=/usr/local/bin/python3
-EDITOR=TextEdit
-OUTPUT=results-$(date +%Y-%m-%d-%H-%M).txt
-KEYWORDS=keywords.txt
-AUTHORS=authors.txt
-LOGIN=login.txt
+WD=$DEV/arxiv-mail-checker
 
-$PYTHON $CHECKER --login $LOGIN --keywords $KEYWORDS --authors $AUTHORS \
-                 --output $OUTPUT
+EDITOR=TextEdit
+OUTPUT=$WD/results-$(/bin/date +%Y-%m-%d-%H-%M).txt
+KEYWORDS=$WD/keywords.txt
+AUTHORS=$WD/authors.txt
+LOGIN=$WD/login.txt
+
+$PYTHON $WD/arxivmailchecker.py --login $LOGIN --keywords-file $KEYWORDS \
+                                --authors-file $AUTHORS --output $OUTPUT
 if [ "$1" == "--open" ]; then
     open -a $EDITOR $OUTPUT
 fi

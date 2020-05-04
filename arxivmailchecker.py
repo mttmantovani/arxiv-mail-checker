@@ -170,8 +170,7 @@ def main():
                         default=sys.stdout,
                         help='Specifies output file.')
     args = parser.parse_args()
-
-
+    
     checker = Checker(args)
     checker.connect()
     checker.fetch()
