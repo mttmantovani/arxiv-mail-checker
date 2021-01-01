@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PYTHON=/usr/local/bin/python3
+PYTHON=python3
 WD=$DEV/arxiv-mail-checker
 
 EDITOR=TextEdit

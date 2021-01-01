@@ -19,7 +19,7 @@ class Checker(object):
         except:
             print(f'Could not parse {args.login_file}. Falling back to command line.')
             self.user = click.prompt('Email', type=str) if args.user is None else args.user
-            self.imap = click.prompt('IMAP server address', type=str) if args.imap is None else args.imap
+            self.imap_server = click.prompt('IMAP server address', type=str) if args.imap is None else args.imap
             self.passwd = getpass.getpass(prompt='Insert password: ')
 
         self.port = args.port
@@ -30,14 +30,14 @@ class Checker(object):
 
         try:
             with open(args.keywords_file) as f:
-                self.keywords = f.read().splitlines()
+                self.keywords = f.read().rstrip().splitlines()
         except:
             print(f'Could not parse {args.keywords_file}. Using command-line keywords.')
             self.keywords = args.keywords
 
         try:
             with open(args.authors_file) as f:
-                self.authors = f.read().splitlines()
+                self.authors = f.read().rstrip().splitlines()
         except:
             print(f'Could not parse {args.authors_file}. Using command-line authors.')
             self.authors = args.authors  
